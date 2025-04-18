@@ -1,0 +1,182 @@
+body {
+    background-image: url('back.jpg');
+}
+
+#myLayout {
+    background-color: aquamarine;
+    width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#top {
+    width: 1600px;
+    height: 200px;
+    background-color: aqua;
+    display: flex;
+}
+
+#top_left {
+    width: 400px;
+    height: 200px;
+    background-color: beige;
+    display: flex;
+}
+
+#logo {
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#homepage_name {
+    color: gray;
+    font-size: 2em; font-style: normal; font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+   
+}
+
+#top_right {
+    width: 1200px;
+    height: 200px;
+    background-color: violet;
+}
+
+#banner {
+    width: 1200px;
+    height: 200px;
+}
+
+#nav {
+    background-color: olive;
+    width: 1600px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    #nav_content {
+        color: gray;
+    }
+
+#mid {
+    background-color: beige;
+    height: 800px;
+    display: flex;
+}    
+    #mid_left {
+        background-color: whitesmoke;
+        width: 200px;
+    }
+    #mid_mid {
+        background-color: beige;
+        width: 1200px;
+    }
+    #mid_right {
+        background-color: whitesmoke;
+        width: 200px;
+    }
+
+#mid_logo {
+    width: 200px;
+    height: 200px;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.right_banner {
+    width: 100px;
+}   
+
+#bot {
+    background-color: darkgray;
+    width: 1600px; height: 50px;
+    position: fixed;
+    bottom: 10px;
+
+    font-size: 1.2em;
+    color: white;
+}
+
+
+
+#banner {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#mid_login {
+    background-color: pink;
+    width: 160px;
+    height: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#login {
+    width: 160px;
+    height: 80px;
+    background-color: thistle;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+    #login_id {
+        width: 80px;
+    }
+
+    #login_pw {
+        width: 80px;
+    }
+
+#board {
+    background-color: antiquewhite;
+    width: 160px;
+    height: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.board_title {
+    color: gray;
+    font-size: 1.2em;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+}
+
+#proud {
+    background-color: thistle;
+    width: 160px;
+    height: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#mid_img_box {
+    width:200px;
+    height: 200px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: chartreuse;
+}
+
+#right_banner {
+    width: 160px;
+}

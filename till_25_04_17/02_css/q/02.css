@@ -1,0 +1,9 @@
+tr, td {
+    border: 3px solid pink;
+    background-color: aqua;
+}
+
+img {
+    width:100px;
+    height:100px;
+}

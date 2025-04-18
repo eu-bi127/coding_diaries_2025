@@ -1,0 +1,47 @@
+#body {
+    background-color: pink;
+}
+
+#top {
+    width: 800px;
+    height: 200px;
+    background-color: beige;
+    display: flex;
+}
+
+#mid {
+    width: 800px;
+    height: 500px;
+    background-color: orange;
+}
+
+#bot {
+    width: 800px;
+    height: 200px;
+    background-color: yellowgreen;
+    display: flex;
+}
+
+#top_left {
+    width: 200px;
+    height: 100px;
+    background-color: blue;
+}
+
+#top_right {
+    width: 600px;
+    height: 100px;
+    background-color: gray;
+}
+
+#bot_left {
+    width: 200px;
+    height: 200ps;
+    background-color: aqua;
+}
+
+#bot_right {
+    width: 600px;
+    height: 100px;
+    background-color: brown;
+}
