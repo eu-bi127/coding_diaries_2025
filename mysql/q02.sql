@@ -2,7 +2,7 @@ use my_cat;
 
 drop table board_guest;
 create table board_guest(
-	no int primary key auto_increment,
+	no int primary key auto_increment,         #이 문장이 들어가면 1,2,3.. 같은 숫자가 매겨진다. 아닐경우, 'no int,'만 해서 숫자가 안나오게 핤 수도 있다.
     con char(255),
     writer char(50)
 );

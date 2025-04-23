@@ -59,14 +59,8 @@ select * from tottenham_squad where p_position = '공격수';
 
 select * from tottenham_squad where p_name like '%스%';
 
-delete from tottenham_squad where p_number = 7;
+delete from tottenham_squad where p_number = 7;         #토트넘 7번 선수 삭제하기
 
 select count(*) from tottenham_squad;
-
-update tottenham_squad set p_name = '로드리고밴탄쿠르' where p_number=30;
-
-select * from tottenham_squad where p_number >= 7;
-
-select * from tottenham_squad where p_name like '%제%' and p_number > 6;
 
 show tables;

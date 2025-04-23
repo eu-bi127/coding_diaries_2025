@@ -14,7 +14,7 @@ create table tottenham_squad(
 select * from tottenham_squad;
 
 #공격수
-insert into tottenham_squad values(0,22,'브레넌 존슨','2001-05-23','공격수',179,73);
+insert into tottenham_squad values(0,22,'브레넌 존슨','2001-05-23','공격수',179,73);            #앞에 0을 넣어주면 id부분이 번호로 순서대로 나온다. 
 insert into tottenham_squad values(0,7,'손흥민','1992-07-08','공격수',183,78);
 insert into tottenham_squad values(0,63,'제이미 돈리','2005-01-03','공격수',180,80);
 insert into tottenham_squad values(0,36,'알레호 벨리스','2003-09-19','공격수',187,77);
@@ -53,10 +53,10 @@ insert into tottenham_squad values(0,41,'알피 화이트맨','1998-10-02','골�
 insert into tottenham_squad values(0,1,'위고 요리스','1986-12-26','골키퍼',188,82);
 insert into tottenham_squad values(0,20,'프레이저 포스터','1988-03-17','골키퍼',201,93);
 
-desc tottenham_squad;
+desc tottenham_squad;      #필드랑 타입이 어떤건지 표시해준다
 
-select * from tottenham_squad where p_name like '%스%';
+select * from tottenham_squad where p_name like '%스%';           #where로 이름에 '스'가 들어가는 이름을 찾아준다.
 
-select count(*) from tottenham_squad;
+select count(*) from tottenham_squad;              #선수 몇명인지 숫자 표현 해준다
 
 show tables;

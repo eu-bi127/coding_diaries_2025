@@ -10,16 +10,8 @@ create table tottenham_squad(
 	p_height int,
 	p_weight int
 );	
-ALTER TABLE tottenham_squad ADD weekly_pay int;
-ALTER TABLE tottenham_squad ADD weekly_pay int default 0;
-desc tottenham_squad;
 
 select * from tottenham_squad;
-ALTER TABLE tottenham_squad DROP COLUMN weekly_pay;
-
-select * from tottenham_squad order by p_number;
-select * from tottenham_squad order by p_number asc;
-select * from tottenham_squad order by p_height desc, p_weight;
 
 #공격수
 insert into tottenham_squad values(0,22,'브레넌 존슨','2001-05-23','공격수',179,73);
@@ -73,8 +65,6 @@ select count(*) from tottenham_squad;
 
 update tottenham_squad set p_name = '로드리고밴탄쿠르' where p_number=30;
 
-select * from tottenham_squad where p_number >= 7;
-
-select * from tottenham_squad where p_name like '%제%' and p_number > 6;
+select * from tottenham_squad where p_number >= 7;              #번호가 7이상인 선수들만 출력
 
 show tables;

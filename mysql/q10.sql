@@ -10,8 +10,13 @@ create table tottenham_squad(
 	p_height int,
 	p_weight int
 );	
+ALTER TABLE tottenham_squad ADD weekly_pay int;          #컬럼을 추가, 주급(연봉 등)의 컬럼을 추가함.
+ALTER TABLE tottenham_squad ADD weekly_pay int default 0;
+ALTER TABLE tottenham_squad DROP COLUMN weekly_pay;
+desc tottenham_squad;
 
 select * from tottenham_squad;
+ALTER TABLE tottenham_squad DROP COLUMN weekly_pay;         #컬럼 삭제
 
 #공격수
 insert into tottenham_squad values(0,22,'브레넌 존슨','2001-05-23','공격수',179,73);
@@ -64,5 +69,9 @@ delete from tottenham_squad where p_number = 7;
 select count(*) from tottenham_squad;
 
 update tottenham_squad set p_name = '로드리고밴탄쿠르' where p_number=30;
+
+select * from tottenham_squad where p_number >= 7;
+
+select * from tottenham_squad where p_name like '%제%' and p_number > 6;
 
 show tables;

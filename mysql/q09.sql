@@ -59,6 +59,14 @@ select * from tottenham_squad where p_position = '공격수';
 
 select * from tottenham_squad where p_name like '%스%';
 
+delete from tottenham_squad where p_number = 7;
+
 select count(*) from tottenham_squad;
+
+update tottenham_squad set p_name = '로드리고밴탄쿠르' where p_number=30;
+
+select * from tottenham_squad where p_number >= 7;
+
+select * from tottenham_squad where p_name like '%제%' and p_number > 6;            #번호가 6이상이면서 이름에 '제'가 등어간 선수들만 출력
 
 show tables;

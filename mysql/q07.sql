@@ -63,4 +63,6 @@ delete from tottenham_squad where p_number = 7;
 
 select count(*) from tottenham_squad;
 
+update tottenham_squad set p_name = '로드리고밴탄쿠르' where p_number=30;        #특정 번호의 선수의 이름을 수정하기
+
 show tables;

@@ -55,16 +55,10 @@ insert into tottenham_squad values(0,20,'프레이저 포스터','1988-03-17','�
 
 desc tottenham_squad;
 
-select * from tottenham_squad where p_position = '공격수';
+select * from tottenham_squad where p_position = '공격수';       #토트넘 공격수만 select해서 보기
 
 select * from tottenham_squad where p_name like '%스%';
 
-delete from tottenham_squad where p_number = 7;
-
 select count(*) from tottenham_squad;
-
-update tottenham_squad set p_name = '로드리고밴탄쿠르' where p_number=30;
-
-select * from tottenham_squad where p_number >= 7;
 
 show tables;

@@ -17,6 +17,10 @@ desc tottenham_squad;
 select * from tottenham_squad;
 ALTER TABLE tottenham_squad DROP COLUMN weekly_pay;
 
+select * from tottenham_squad order by p_number;
+select * from tottenham_squad order by p_number asc;                 #오름순차,  작은거부터 위로 올라갈수록 큰.
+select * from tottenham_squad order by p_height desc, p_weight;      #큰 것 부터 작은걸로 내려감.  같은 키인 경우 몸무게가 가벼운 선수가 먼저 나오게 정렬함.
+
 #공격수
 insert into tottenham_squad values(0,22,'브레넌 존슨','2001-05-23','공격수',179,73);
 insert into tottenham_squad values(0,7,'손흥민','1992-07-08','공격수',183,78);
