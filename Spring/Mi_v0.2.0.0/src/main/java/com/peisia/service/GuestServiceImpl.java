@@ -20,10 +20,12 @@ public class GuestServiceImpl implements GuestService{
 	private GuestMapper mapper;	
 	
 	@Override
-	public ArrayList<GuestDto> getList() {
+	public ArrayList<GuestDto> getList(int currentPage) {
 		log.info("비지니스 계층===========");
-		return mapper.getList();
+		int limitIndex = (currentPage-1) * 5;
+		return mapper.getList(limitIndex);
 	}
+	
 	
 	@Override
 	public GuestDto read(long bno) {

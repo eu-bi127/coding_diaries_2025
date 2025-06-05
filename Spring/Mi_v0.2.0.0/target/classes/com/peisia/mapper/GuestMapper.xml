@@ -6,7 +6,7 @@
 	<!-- resultType 에 복수형(ArrayList 등)을 적는게 아님. 
 	그냥 dto 단수의 경로를 적어야됨. -->
 	<select id="getList" resultType="com.peisia.dto.GuestDto">
-		SELECT * from tbl_guest
+		SELECT * from tbl_guest limit #{limitIndex} , 5
 	</select>
 	
 	<select id="read" resultType="com.peisia.dto.GuestDto">
