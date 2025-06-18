@@ -20,6 +20,12 @@ body{
 .궁수{
   background-image: url('./궁수.webp');
 }
+.도적{
+  background-image: url('./도적.webp');
+}
+.사제{
+  background-image: url('./사제.webp');
+}
 
 .card{
   background-size: cover; /* 비율에 맞춰 영역을 꽉 채웁니다 */
@@ -27,5 +33,23 @@ body{
   background-repeat: no-repeat; /* 반복하지 않음 */  
   width:200px;
   height:308px;
-  border: 4px solid yellow;
+}
+
+.SSR{
+  border: 4px solid red;  
+}
+.SR{
+  border: 4px solid gold;  
+}
+.S{
+  border: 4px solid yellow;  
+}
+.R{
+  border: 4px solid purple;  
+}
+.H{
+  border: 4px solid green;  
+}
+.N{
+  border: 4px solid gray;  
 }

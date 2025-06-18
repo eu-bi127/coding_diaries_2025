@@ -1,42 +1,78 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
-function Card({ job }) {
-  return (
-    <div className={`card ${job}`}> 
-      {/* ` (빽틱이라고 부름) `로 묶는 문법을 공식적으로는 "템플릿 리터럴(Template Literal)" 
-      또는 "템플릿 문자열(Template String)" 이라고 부릅니다.
-      그리고 ${job} 같은 형식은 "표현식 삽입(Expression Interpolation)" 이라고 합니다. */}
+var jobs = ["전사","마법사","궁수","도적","사제"];
+var grade = ["SSR","SR","S","R","H","N"];
 
-      {/* $ 기호는 템플릿 리터럴을 사용할 때 변수나 표현식을 삽입하기 위해 쓰이는 문법 */}
-      카드
+function dice(s,e){
+  return Math.floor(Math.random()*(e-s+1))+s;
+}
+
+function Card({ job, grade }) {
+  return (
+    <div className={`card ${job} ${grade}`}>
+      {job} - {grade} {/* job과 grade를 표시 */}
     </div>
-  )
+  );
 }
 
 function CardArea({ children }) {
   return (
     <div id='card_area'>
-      {/* {j}와 같이 중괄호로 감싼 표현은 JSX 안에서 자바스크립트 표현식을 삽입하는 문법이며, 
-      공식적으로는 "JSX 표현식" 또는 "중괄호 표현" 이라고 부릅니다. */}      
-      {children} 
+      {children}
     </div>
-  )
+  );
 }
 
 function App() {
-  var [party] = useState(['전사', '마법사', '궁수', '전사', '궁수'])
+  function gacha(){
+    var j = jobs[dice(0,4)];
+    var g = grade[dice(0,5)];
+    console.log(j,g);
+    // 기존의 `my` 배열을 복사하고, 새 객체를 추가한 새로운 배열로 업데이트
+    setMy([...my, { job: j, grade: g }]);
+  }
+
+  // var [my,setMy] = useState([{ job: '전사', grade: 'SSR' }]);
+  var [my,setMy] = useState([]);
+  const [party] = useState([
+    { job: '전사', grade: 'SSR' },
+    { job: '마법사', grade: 'SR' },
+    { job: '궁수', grade: 'S' },
+    { job: '전사', grade: 'R' },
+    { job: '궁수', grade: 'H' }
+  ]);
+  const [enemy] = useState([
+    { job: '전사', grade: 'H' },
+    { job: '전사', grade: 'H' },
+    { job: '전사', grade: 'H' },
+    { job: '전사', grade: 'H' },
+    { job: '전사', grade: 'H' },
+  ]);
 
   return (
     <>
+      <h2>파티 1</h2>
       <CardArea>
-        {party.map((j) => (
-          <Card job={j} />
+        {party.map((character, index) => (
+          <Card key={index} job={character.job} grade={character.grade} />
         ))}
-        
+      </CardArea>
+      <h2>보유</h2>
+      <button onClick={gacha}>카드 1뽑</button>
+      <CardArea>
+        {my.map((character, index) => (
+          <Card key={index} job={character.job} grade={character.grade} />
+        ))}
+      </CardArea>
+      <h2>적</h2>
+      <CardArea>
+        {enemy.map((character, index) => (
+          <Card key={index} job={character.job} grade={character.grade} />
+        ))}
       </CardArea>
     </>
-  )
+  );
 }
 
 export default App;
