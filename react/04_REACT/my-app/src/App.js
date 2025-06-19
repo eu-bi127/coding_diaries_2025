@@ -1,77 +1,93 @@
-import React, { useState } from 'react';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
-var jobs = ["전사","마법사","궁수","도적","사제"];
-var grade = ["SSR","SR","S","R","H","N"];
+function RamenTimer({ duration, onComplete }) {
+  const [timeLeft, setTimeLeft] = useState(duration); // 선택된 라면 시간
 
-function dice(s,e){
-  return Math.floor(Math.random()*(e-s+1))+s;
-}
+  useEffect(() => {
+    if (timeLeft > 0) {
+      const timerId = setTimeout(() => {
+        setTimeLeft(timeLeft - 1);
+      }, 1000);
 
-function Card({ job, grade }) {
+      return () => clearTimeout(timerId);
+    } else {
+      onComplete(); // 타이머 종료 시 호출
+    }
+  }, [timeLeft, onComplete]);
+
   return (
-    <div className={`card ${job} ${grade}`}>
-      {job} - {grade} {/* job과 grade를 표시 */}
+    <div style={{ fontSize: '1em', color: 'blue' }}>
+      남은 시간: {timeLeft}초
     </div>
   );
 }
 
-function CardArea({ children }) {
+function Burner({ burnerNumber }) {
+  const [selectedRamen, setSelectedRamen] = useState('');
+  const [timerDuration, setTimerDuration] = useState(0);
+  const [isTimerRunning, setIsTimerRunning] = useState(false);
+  const [isBurnerOn, setIsBurnerOn] = useState(false);
+  const [resultMessage, setResultMessage] = useState('');
+
+  const ramenOptions = {
+    너구리: 20,
+    신라면: 10,
+    짜파게티: 30
+  };
+
+  const handleRamenSelect = (e) => {
+    const ramenType = e.target.value;
+    setSelectedRamen(ramenType);
+    setTimerDuration(ramenOptions[ramenType]); // 선택한 라면의 조리 시간 설정
+  };
+
+  const handleStartTimer = () => {
+    if (timerDuration > 0) {
+      setIsBurnerOn(true);
+      setIsTimerRunning(true);
+      setResultMessage('');
+    }
+  };
+
+  const handleTimerComplete = () => {
+    setIsBurnerOn(false);
+    setIsTimerRunning(false);
+    setResultMessage(`${selectedRamen} 라면이 완성되었습니다!`);
+  };
+
   return (
-    <div id='card_area'>
-      {children}
+    <div style={{ border: '1px solid gray', padding: '20px', margin: '10px' }}>
+      <h2>버너 {burnerNumber}</h2>
+      <p>버너 상태: {isBurnerOn ? "ON" : "OFF"}</p>
+      <select onChange={handleRamenSelect} value={selectedRamen}>
+        <option value="">라면 종류 선택</option>
+        <option value="너구리">너구리</option>
+        <option value="신라면">신라면</option>
+        <option value="짜파게티">짜파게티</option>
+      </select>
+      <button onClick={handleStartTimer} disabled={isTimerRunning || !selectedRamen}>
+        {isTimerRunning ? "조리 중..." : "버너 ON"}
+      </button>
+      
+      {isTimerRunning && (
+        <RamenTimer duration={timerDuration} onComplete={handleTimerComplete} />
+      )}
+
+      {resultMessage && <p>{resultMessage}</p>}
     </div>
   );
 }
 
 function App() {
-  function gacha(){
-    var j = jobs[dice(0,4)];
-    var g = grade[dice(0,5)];
-    console.log(j,g);
-    // 기존의 `my` 배열을 복사하고, 새 객체를 추가한 새로운 배열로 업데이트
-    setMy([...my, { job: j, grade: g }]);
-  }
-
-  // var [my,setMy] = useState([{ job: '전사', grade: 'SSR' }]);
-  var [my,setMy] = useState([]);
-  const [party] = useState([
-    { job: '전사', grade: 'SSR' },
-    { job: '마법사', grade: 'SR' },
-    { job: '궁수', grade: 'S' },
-    { job: '전사', grade: 'R' },
-    { job: '궁수', grade: 'H' }
-  ]);
-  const [enemy] = useState([
-    { job: '전사', grade: 'H' },
-    { job: '전사', grade: 'H' },
-    { job: '전사', grade: 'H' },
-    { job: '전사', grade: 'H' },
-    { job: '전사', grade: 'H' },
-  ]);
-
   return (
-    <>
-      <h2>파티 1</h2>
-      <CardArea>
-        {party.map((character, index) => (
-          <Card key={index} job={character.job} grade={character.grade} />
-        ))}
-      </CardArea>
-      <h2>보유</h2>
-      <button onClick={gacha}>카드 1뽑</button>
-      <CardArea>
-        {my.map((character, index) => (
-          <Card key={index} job={character.job} grade={character.grade} />
-        ))}
-      </CardArea>
-      <h2>적</h2>
-      <CardArea>
-        {enemy.map((character, index) => (
-          <Card key={index} job={character.job} grade={character.grade} />
-        ))}
-      </CardArea>
-    </>
+    <div style={{ textAlign: 'center' }}>
+      <h1>라면 버너 타이머</h1>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Burner burnerNumber={1} />
+        <Burner burnerNumber={2} />
+        <Burner burnerNumber={3} />
+      </div>
+    </div>
   );
 }
 
