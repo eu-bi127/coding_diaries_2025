@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import '../App.css';
 
 var jobs = ["전사","마법사","궁수","도적","사제"];
 var grade = ["SSR","SR","S","R","H","N"];
