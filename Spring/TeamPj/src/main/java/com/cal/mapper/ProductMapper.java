@@ -3,7 +3,7 @@ import com.cal.dto.ProductDto;
 
 public interface ProductMapper {
 
-    ProductDto selectProductById(int id);         // 상품 1개 조회
+   public ProductDto selectProductById(int id);         // 상품 1개 조회
 
-    int updateProduct(ProductDto product);         // 상품 수정
+   public int updateProduct(ProductDto product);         // 상품 수정
 }

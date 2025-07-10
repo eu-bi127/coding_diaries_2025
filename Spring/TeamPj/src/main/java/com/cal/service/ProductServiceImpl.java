@@ -15,10 +15,11 @@ public class ProductServiceImpl implements ProductService {
 	
 	private ProductMapper mapper;
 
-    @Override
-    public ProductDto getProductById(int id) {
-        return mapper.selectProductById(id);
-    }
+	@Override
+	public ProductDto getProductById(int id) {
+	    // 일단 DB 말고 하드코딩된 데이터로 연결 확인
+	    return new ProductDto(id, "테스트 상품", 1000, "도시락", "https://example.com/image.jpg");
+	}
 
     @Override
     public void updateProduct(int id, ProductDto dto) {
