@@ -1,17 +1,27 @@
 package com.cal.service;
 
+import com.cal.dto.BoardDto;
 import com.cal.mapper.BoardMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.AllArgsConstructor;
+
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+@AllArgsConstructor  //생성자 주입
 @Service
 public class BoardServiceImpl implements BoardService {
 
-    @Autowired
     private BoardMapper boardMapper;
 
     @Override
-    public void deleteBoard(int id) throws Exception {
+    public List<BoardDto> getBoardList() {
+        return boardMapper.selectAll(); // Mapper에서 가져옴
+    }
+
+    @Override
+    public void deleteBoard(int id) {
         boardMapper.delete(id);
     }
 }

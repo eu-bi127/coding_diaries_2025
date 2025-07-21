@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 // @RestController: @Controller + @ResponseBody 합친 애노테이션 (JSON 응답 용)
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/product")
 public class ProductController {
 
     @Autowired
